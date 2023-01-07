@@ -1,0 +1,7 @@
+{
+  "name": "remote",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

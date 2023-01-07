@@ -1,0 +1,7 @@
+{
+  "name": "host",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
