@@ -3,21 +3,13 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
 	webpack: {
-		configure: (webpackConfig, { env, paths }) => {
-			webpackConfig.output.publicPath = 'auto';
-
-			const htmlWebpackPlugin = webpackConfig.plugins.find(
-				(plugin) => plugin.constructor.name === 'HtmlWebpackPlugin'
-			);
-
-			htmlWebpackPlugin.userOptions = {
-				...htmlWebpackPlugin.userOptions,
-				publicPath: paths.publicUrlOrPath,
-				excludeChunks: ['remote'],
-			};
-
-			webpackConfig.plugins = [
-				...webpackConfig.plugins,
+		configure: {
+			output: {
+				publicPath: 'auto',
+			},
+		},
+		plugins: {
+			add: [
 				new ModuleFederationPlugin({
 					name: 'host',
 					remotes: {
@@ -39,9 +31,7 @@ module.exports = {
 						},
 					},
 				}),
-			];
-
-			return webpackConfig;
+			],
 		},
 	},
 };
