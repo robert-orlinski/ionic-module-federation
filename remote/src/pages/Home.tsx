@@ -2,6 +2,7 @@ import MessageListItem from '../components/MessageListItem';
 import { useState } from 'react';
 import { Message, getMessages } from '../data/messages';
 import {
+	IonButton,
 	IonContent,
 	IonHeader,
 	IonList,
@@ -53,6 +54,23 @@ const Home: React.FC = () => {
 					))}
 				</IonList>
 			</IonContent>
+
+			<IonButton
+				size="small"
+				onClick={async () => {
+					await Share.share({
+						title: 'See cool stuff',
+						text: 'Really awesome thing you need to see right meow',
+						url: 'http://ionicframework.com/',
+						dialogTitle: 'Share with buddies',
+					});
+				}}
+				style={{
+					height: '45px',
+				}}
+			>
+				Share
+			</IonButton>
 		</IonPage>
 	);
 };
