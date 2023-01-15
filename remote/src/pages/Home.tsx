@@ -56,7 +56,6 @@ const Home: React.FC = () => {
 			</IonContent>
 
 			<IonButton
-				size="small"
 				onClick={async () => {
 					await Share.share({
 						title: 'See cool stuff',
@@ -64,9 +63,6 @@ const Home: React.FC = () => {
 						url: 'http://ionicframework.com/',
 						dialogTitle: 'Share with buddies',
 					});
-				}}
-				style={{
-					height: '45px',
 				}}
 			>
 				Share
